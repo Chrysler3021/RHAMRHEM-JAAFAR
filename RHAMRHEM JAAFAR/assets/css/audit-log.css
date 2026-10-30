@@ -1,0 +1,475 @@
+/* ==========================================================================
+   VendFlow - Audit Log & Admin Dashboard UI
+   Matches screenshot specifications
+   ========================================================================== */
+
+:root {
+    --bg-page: #f8fafc;
+    --sidebar-bg: #0f172a;
+    --sidebar-text: #94a3b8;
+    --sidebar-text-active: #ffffff;
+    --sidebar-active-pill: #2563eb;
+    --border-color: #e2e8f0;
+    --text-primary: #0f172a;
+    --text-muted: #64748b;
+    --badge-restock-bg: #dcfce7;
+    --badge-restock-text: #166534;
+    --badge-initial-bg: #f1f5f9;
+    --badge-initial-text: #334155;
+    --badge-loss-bg: #fee2e2;
+    --badge-loss-text: #991b1b;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body.admin-body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-page);
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    overflow-x: hidden;
+}
+
+/* ==========================================================================
+   Dark Sidebar (Left Column)
+   ========================================================================== */
+.admin-sidebar {
+    width: 250px;
+    background-color: var(--sidebar-bg);
+    color: var(--sidebar-text);
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    min-height: 100vh;
+    padding: 1.25rem 0.85rem;
+    position: sticky;
+    top: 0;
+}
+
+/* Brand header */
+.sidebar-brand-box {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    padding: 0 0.5rem 1.25rem;
+}
+
+.brand-icon-sq {
+    width: 28px;
+    height: 28px;
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #38bdf8;
+    font-size: 0.95rem;
+}
+
+.brand-text-wrap {
+    display: flex;
+    flex-direction: column;
+}
+
+.brand-title {
+    color: #ffffff;
+    font-weight: 800;
+    font-size: 1.05rem;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+}
+
+.brand-subtitle {
+    font-size: 0.72rem;
+    color: #64748b;
+    font-weight: 500;
+}
+
+/* Company / User Profile Card */
+.sidebar-profile-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 8px;
+    padding: 0.75rem 0.85rem;
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.profile-info-left {
+    display: flex;
+    flex-direction: column;
+}
+
+.company-name {
+    color: #ffffff;
+    font-size: 0.86rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.user-name-small {
+    color: #64748b;
+    font-size: 0.76rem;
+    margin-top: 0.15rem;
+}
+
+.tier-badge {
+    background: #000000;
+    border: 1px solid #334155;
+    color: #e2e8f0;
+    font-size: 0.68rem;
+    font-weight: 700;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+}
+
+/* Navigation Links */
+.sidebar-nav-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    flex: 1;
+}
+
+.sidebar-nav-item a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.55rem 0.75rem;
+    border-radius: 6px;
+    color: var(--sidebar-text);
+    text-decoration: none;
+    font-size: 0.86rem;
+    font-weight: 500;
+    transition: all 0.12s ease;
+}
+
+.sidebar-nav-item a:hover {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.sidebar-nav-item.active a {
+    background-color: var(--sidebar-active-pill);
+    color: var(--sidebar-text-active);
+    font-weight: 600;
+}
+
+.nav-count-badge {
+    background: #e11d48;
+    color: #ffffff;
+    font-size: 0.7rem;
+    font-weight: 800;
+    padding: 0.05rem 0.4rem;
+    border-radius: 4px;
+}
+
+.nav-count-badge.neutral {
+    background: #1e293b;
+    color: #94a3b8;
+    border: 1px solid #334155;
+}
+
+/* Sidebar Footer */
+.sidebar-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.85rem 0.5rem 0.25rem;
+    border-top: 1px solid #1e293b;
+    font-size: 0.78rem;
+}
+
+.sidebar-footer a {
+    color: #64748b;
+    text-decoration: none;
+    transition: color 0.15s;
+}
+
+.sidebar-footer a:hover {
+    color: #cbd5e1;
+}
+
+/* ==========================================================================
+   Main Content Area
+   ========================================================================== */
+.admin-main-wrap {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    background: #ffffff;
+}
+
+/* Top App Header */
+.admin-top-header {
+    background: #ffffff;
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.top-page-title {
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+}
+
+.header-action-group {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.btn-header-outline {
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 0.5rem 0.95rem;
+    font-size: 0.84rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.12s ease;
+}
+
+.btn-header-outline:hover {
+    background: #f8fafc;
+    border-color: #cbd5e1;
+}
+
+.btn-header-primary {
+    background: #1e40af;
+    border: 1px solid #1d4ed8;
+    border-radius: 6px;
+    padding: 0.5rem 0.95rem;
+    font-size: 0.84rem;
+    font-weight: 600;
+    color: #ffffff;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.12s ease;
+}
+
+.btn-header-primary:hover {
+    background: #1d4ed8;
+}
+
+/* Content Container */
+.admin-content-body {
+    padding: 1.75rem 2rem 3rem;
+}
+
+/* Sub-heading & Description */
+.audit-subhead-box {
+    margin-bottom: 1.5rem;
+}
+
+.audit-section-heading {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 0.35rem;
+}
+
+.audit-section-desc {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+/* ==========================================================================
+   Audit Log Table (Exact Column Match)
+   ========================================================================== */
+.table-card-wrapper {
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+}
+
+.audit-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 0.84rem;
+}
+
+.audit-table th {
+    background: #fafaf9;
+    padding: 0.85rem 1rem;
+    font-size: 0.76rem;
+    font-weight: 700;
+    color: #475569;
+    text-transform: capitalize;
+    border-bottom: 1px solid var(--border-color);
+    white-space: nowrap;
+}
+
+.audit-table td {
+    padding: 0.95rem 1rem;
+    border-bottom: 1px solid var(--border-color);
+    vertical-align: middle;
+}
+
+.audit-table tr:last-child td {
+    border-bottom: none;
+}
+
+.audit-table tr:hover td {
+    background-color: #f8fafc;
+}
+
+/* Column Specific Styles */
+.col-timestamp {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    white-space: nowrap;
+}
+
+.product-primary-title {
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.25;
+}
+
+.product-sub-sku {
+    font-size: 0.74rem;
+    color: var(--text-muted);
+    margin-top: 0.15rem;
+}
+
+.machine-primary-title {
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.25;
+}
+
+.machine-sub-loc {
+    font-size: 0.74rem;
+    color: var(--text-muted);
+    margin-top: 0.15rem;
+}
+
+.num-cell {
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.change-cell-positive {
+    color: #16a34a;
+    font-weight: 700;
+}
+
+.change-cell-negative {
+    color: #dc2626;
+    font-weight: 700;
+}
+
+/* Reason Badges */
+.reason-badge {
+    display: inline-block;
+    padding: 0.18rem 0.55rem;
+    border-radius: 4px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.badge-restock {
+    background-color: var(--badge-restock-bg);
+    color: var(--badge-restock-text);
+}
+
+.badge-initial {
+    background-color: var(--badge-initial-bg);
+    color: var(--badge-initial-text);
+}
+
+.badge-loss {
+    background-color: var(--badge-loss-bg);
+    color: var(--badge-loss-text);
+}
+
+.reason-note-text {
+    font-size: 0.74rem;
+    color: var(--text-muted);
+    margin-top: 0.2rem;
+}
+
+.operator-cell {
+    font-weight: 600;
+    color: var(--text-primary);
+    white-space: nowrap;
+}
+
+/* ==========================================================================
+   Pagination Bar
+   ========================================================================== */
+.pagination-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.25rem;
+    background: #ffffff;
+    border-top: 1px solid var(--border-color);
+    font-size: 0.82rem;
+    color: var(--text-muted);
+}
+
+.pagination-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.page-btn {
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    padding: 0.35rem 0.65rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.12s;
+    user-select: none;
+}
+
+.page-btn:hover:not(.disabled) {
+    background: #f1f5f9;
+    border-color: #cbd5e1;
+}
+
+.page-btn.active {
+    background: #2563eb;
+    border-color: #2563eb;
+    color: #ffffff;
+}
+
+.page-btn.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: #f8fafc;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .table-card-wrapper {
+        overflow-x: auto;
+    }
+}

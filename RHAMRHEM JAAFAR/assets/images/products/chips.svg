@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="100%" height="100%">
+  <defs>
+    <linearGradient id="chipsGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="40%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+  </defs>
+  <!-- Bag Top Crimps -->
+  <path d="M34,26 L38,22 L42,26 L46,22 L50,26 L54,22 L58,26 L62,22 L66,26 L70,22 L74,26 L78,22 L82,26 L86,22 L86,30 L34,30 Z" fill="#b45309"/>
+  <!-- Bag Body (Puffy) -->
+  <path d="M34,30 Q30,62 33,92 L87,92 Q90,62 86,30 Z" fill="url(#chipsGrad)" stroke="#b45309" stroke-width="1.2"/>
+  <!-- Bag Bottom Crimps -->
+  <path d="M33,92 L37,96 L41,92 L45,96 L49,92 L53,96 L57,92 L61,96 L65,92 L69,96 L73,92 L77,96 L81,92 L85,96 L87,92 Z" fill="#b45309"/>
+  <!-- Central Badge -->
+  <ellipse cx="60" cy="58" rx="20" ry="14" fill="#ef4444" stroke="#ffffff" stroke-width="1.5"/>
+  <text x="60" y="61" font-family="sans-serif" font-weight="900" font-size="8" fill="#ffffff" text-anchor="middle" letter-spacing="0.5">CHIPS</text>
+  <!-- Illustrated Potato Chip -->
+  <path d="M48,78 Q60,70 72,79 Q64,88 48,78 Z" fill="#fde047" stroke="#ca8a04" stroke-width="1"/>
+</svg>
